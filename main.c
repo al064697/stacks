@@ -18,16 +18,13 @@ typedef struct {
 void createStack(Stack *stack) {
     stack->top = NULL;
 }
-
 int isStackEmpty(Stack stack) {
     return (stack.top == NULL);
     //1.- Stack is empty
     //0.- Stack has elements
 }
 
-
-/*2.- Returns the top element of the stack*/
-Item top(Stack *stack) {
+Item top(Stack *stack) { /*2.- Returns the top element of the stack*/
     if(isStackEmpty(*stack)) {
         puts("Underflow");
         exit(1);
@@ -35,10 +32,7 @@ Item top(Stack *stack) {
     return stack->top->element;
 }
 
-
-//3.- Insert an element into the stack
-
-void insert(Stack *stack, Item element) {
+void insert(Stack *stack, Item element) { //3.- Insert an element into the stack
     Node *newNode;
     newNode = (Node*) malloc(sizeof(Node));
     newNode -> element = element;
@@ -46,10 +40,7 @@ void insert(Stack *stack, Item element) {
     stack->top = newNode;
 }
 
-
-//4.- Remove an element from the stack
-
-void removeFirstNode(Stack *stack) {
+void removeFirstNode(Stack *stack) { //4.- Remove an element from the stack
     if(isStackEmpty(*stack) == 0) {
         Node *f;
         f=stack->top;
@@ -58,19 +49,15 @@ void removeFirstNode(Stack *stack) {
         printf("The top element is removed.\n");
 
     }else printf("The stack is empty.\n");
-
 }
 
-//5.-Clean the stack
-void cleanStack(Stack *stack) {
+void cleanStack(Stack *stack) {  //5.-Clean the stack
     while(!isStackEmpty(*stack)) {
         removeFirstNode(stack);
     }
 }
 
-
-//6.- Count the number of elements in the stack
-int sizeStack(Stack stack) {
+int sizeStack(Stack stack) { //6.- Count the number of elements in the stack
     Node *f;
     int count = 0;
     for(f=stack.top; f!=NULL; f=f->next) {
@@ -79,9 +66,7 @@ int sizeStack(Stack stack) {
     return count;
 }
 
-
-//Menu function
-int menu() {
+int menu() { //Menu function
     system("clear");
     int option;
     printf("********** STACKS **********\n"
